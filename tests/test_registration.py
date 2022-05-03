@@ -17,9 +17,9 @@ class TestFirst:
         @step("Open signup") #TO DO локаторы
         def _():
             browser.open("/accounts/sign-up")
-            Dropdown('//*[@id="content"]//exwc-select/div/exwc-input').select('Argentina')
-            browser.element('//*[@id="content"]//exwc-fieldset[2]/div/div/exwc-input/input').click().type(self.faker.email())
-            browser.element('//*[@id="content"]//exwc-fieldset/div/div/exwc-password/div/input').click().type('kl234DRf23dsf').press_enter() ## TO DO рандомный пароль без спецсимволов
+            Dropdown('[name="country"]').select('Argentina')
+            browser.element('[type="email"]').click().type(self.faker.email())
+            browser.element('[type="password"]').click().type('kl234DRf23dsf').press_enter() ## TO DO рандомный пароль без спецсимволов
             browser.should(have.url_containing("https://my.exness.com/webtrading/"))
 
 
