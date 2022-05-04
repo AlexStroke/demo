@@ -30,7 +30,9 @@ class Test:
             browser.element('[type=password]').click().type('kl234DRf23dsf').press_enter() #TO DO вынести в фикстуру, а пароль в env
             browser.open("/webtrading/")
             browser.element('[data-test=nav-button-watchlist]').click()
-            browser.element('[data-test=asset-popup-search]').type('AAPL')
+            browser.element('[data-test=asset-popup-search]').click().type('AAPL')
+            browser.elements('.watchlistItem').first().click()
+            browser.element('.asset-tab-symbol').should(have.text('AAPL')) #TO DO Сделать, чтобы работало с коллекцией
 
     def test_auth(self):
         @step("Auth")
